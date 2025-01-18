@@ -18,9 +18,14 @@ class Item:
         return len(visible_string)
     
     def render(self, term):
-        print(term.home, term.move_down(self.y))
-        for line in self.print_lines:
-            print(term.move_right(self.x) + line)
+        for l, line in enumerate(self.print_lines):
+            print(term.home + term.move_xy(self.x, self.y+l) + line)
+        print(term.home, end="")
+        
+    def delete(self, term):
+        for l, line in enumerate(self.print_lines):
+            print(term.home + term.move_xy(self.x, self.y+l) + " "*self.width)
+        print(term.home, end="")
     
     def update(self):
         with self.console.capture() as capture:
