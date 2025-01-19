@@ -1,13 +1,4 @@
 from blessed import Terminal
-from items.table import Table
-from items.inputbox import InputBox
-from rich import box
-
-t = Table(5, 5, title="Table 1", box=box.ROUNDED)
-t.add_column("Col 1")
-t.add_column("Col 2")
-t.add_row("Row 11", "Row 12")
-t.add_row("Row 21", "Row 22")
 
 class Space:
     
